@@ -1,0 +1,52 @@
+@import '../../../styles/mixins.scss';
+
+.cart-product-card {
+    display: flex;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 0.1rem solid var(--color-grey);
+
+    @include vp-768 {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+
+        & + .cart-product-card {
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 0.1rem solid var(--color-grey);
+        }
+    }
+}
+
+.cart-product-card_img {
+    width: 11rem;
+    height: 13rem;
+    object-fit: cover;
+}
+
+.cart-product-card_description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 2rem;
+    padding: 0.5rem 0;
+}
+
+.cart-product-card_title {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.cart-product-card_text {
+    color: var(--color-grey);
+}
+
+.cart-product-card_price {
+    font-weight: 700;
+}
+
+.cart-product-card_button {
+    margin-left: auto;
+}
+

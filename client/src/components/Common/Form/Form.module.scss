@@ -1,0 +1,68 @@
+@import '../../../styles/mixins.scss';
+
+.form {
+    max-width: 50rem;
+    padding: 1.5rem;
+    width: 100%;
+    background-color: var(--color-light-grey);
+
+    @include vp-768 {
+        padding: 3rem;
+    }
+
+    .form_input {
+        padding-bottom: 0;
+    }
+}
+
+.form_title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form_container {
+    position: relative;
+    & + .form_container {
+        margin-top: 2rem;
+    }
+
+    &.error {
+        .form_input {
+            border-color: var(--color-error);
+            background-color: var(--color-pale-red);
+        }
+    }
+}
+
+.form_input {
+    &:not(:placeholder-shown),
+    &:focus {
+        &+ .form_label {
+            transform: translateY(-1rem);
+            font-size: 1.2rem;
+        }
+    }
+
+    &::placeholder {
+        opacity: 0;
+    }
+
+}
+
+.form_label {
+    position: absolute;
+    left: 1.1rem;
+    top: 0;
+    bottom: 0;
+    height: 1.8rem;
+    margin: auto;
+    font-size: 1.8rem;
+    color: var(--color-grey);
+    transition: 0.2s;
+    cursor: text;
+}
+
+.form_button {
+    width: 100%;
+    margin-top: 3rem;
+}

@@ -1,0 +1,141 @@
+@import '../../../../node_modules/swiper/swiper.scss';
+@import '../../../styles/mixins.scss';
+
+.product-slider {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 4rem;
+    position: relative;
+    overflow: hidden;
+
+    @include vp-768 {
+        max-width: 42.2vw;
+        flex-direction: column;
+        padding-bottom: 0;
+        margin-bottom: 2.2rem;
+    }
+
+    @include vp-1200 {
+        width: 54rem;
+        max-width: 54rem;
+        align-items: center;
+    }
+
+    .swiper-wrapper {
+        max-height: 84.4vw;
+        max-width: 76.3vw;
+
+        @include vp-768 {
+            max-height: 55vw;
+        }
+
+        @include vp-1200 {
+            max-height: 52.3rem;
+            max-width: 40rem;
+        }
+    }
+
+    .swiper-slide {
+        overflow: hidden;
+    }
+}
+
+.product-slider_img {
+    width: 100%;
+    max-height: 84.4vw;
+    object-fit: cover;
+    max-width: 76.3vw;
+
+    @include vp-768 {
+        max-height: 55vw;
+    }
+
+    @include vp-1200 {
+        max-height: 52.3rem;
+        max-width: 40rem;
+    }
+}
+
+.product-slider_button {
+    position: absolute;
+    padding: 0.5rem;
+    top: calc(50% - 2.3rem);
+    left: -0.6rem;
+    z-index: 1;
+
+    &:disabled {
+        opacity: 0.3;
+    }
+
+    @include vp-768 {
+        display: none;
+    }
+
+    @include vp-1200 {
+        display: block;
+    }
+
+    &--next {
+        right: -0.6rem;
+        left: unset;
+        transform: rotate(180deg);
+    }
+}
+
+.product-slider_icon {
+    width: 0.8rem;
+    height: 1.6rem;
+
+    @include vp-1200 {
+        width: 1rem;
+        height: 2.1rem;
+    }
+}
+
+.product-slider_pagination {
+    display: none;
+
+    @include vp-768 {
+        display: flex;
+        max-width: 42.2vw;
+
+        overflow: hidden;
+    }
+
+    @include vp-1200 {
+        max-width: 40rem;
+    }
+
+    .product-slider_pagination-img {
+        @include vp-768 {
+            width: 100%;
+            max-height: 17vw;
+            object-fit: cover;
+        }
+
+        @include vp-1200 {
+            max-height: 11.5rem;
+        }
+    }
+
+    .swiper-slide {
+        transition: var(--default-transition);
+        @include vp-768 {
+            opacity: 0.5;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.swiper-slide-thumb-active {
+            @include vp-768 {
+                opacity: 1;
+            }
+
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
+}

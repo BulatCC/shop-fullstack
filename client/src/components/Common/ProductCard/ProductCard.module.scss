@@ -1,0 +1,82 @@
+@import '../../../styles/mixins.scss';
+
+.product-card {
+    &--catalog {
+        .product-card_img-wrap {
+            @include vp-768 {
+                height: 36.33vw;
+            }
+
+            @include vp-1200 {
+                height: 27rem;
+            }
+        }
+    }
+
+    &--big {
+        .product-card_img-wrap {
+            height: 110vw;
+
+            @include vp-768 {
+                height: 87.5vw;
+            }
+
+            @include vp-1200 {
+                height: 67rem;
+            }
+        }
+    }
+}
+
+.product-card_img-wrap {
+    margin-bottom: 1.5rem;
+    height: 50vw;
+    overflow: hidden;
+
+    @include vp-768 {
+        margin-bottom: 2rem;
+    }
+
+    @include vp-1200 {
+        height: 34.9rem;
+    }
+}
+
+.product-card_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-card_title {
+    display: inline-block;
+    margin-bottom: 1rem;
+    min-height: 1.8rem;
+    line-height: 1;
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    @include vp-768 {
+        font-size: 1.8rem;
+    }
+
+    &.skeleton {
+        width: 50%;
+    }
+}
+
+.product-card_price {
+    margin-bottom: 1.5rem;
+    min-height: 1.9rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+
+    @include vp-768 {
+        font-size: 1.6rem;
+    }
+
+    &.skeleton {
+        width: 20%;
+    }
+}

@@ -1,0 +1,64 @@
+@import '../../../styles/mixins.scss';
+
+.product-details_description {
+    padding: 4rem 0;
+    background-color: var(--color-light-grey);
+
+    @include vp-768 {
+        padding: 5rem;
+    }
+
+    .product-details_container {
+        @include vp-1200 {
+            align-items: flex-start;
+            justify-content: initial;
+            height: 100%;
+        }
+    }
+}
+
+.product-details_list {
+    margin-bottom: 3rem;
+}
+
+.product-details_item {
+    & + .product-details_item {
+        margin-top: 3.5rem;
+
+        @include vp-768 {
+            margin-top: 4rem;
+        }
+    }
+}
+
+.product-details_title {
+    margin-bottom: 3rem;
+}
+
+.product-details_text {
+    font-size: 1.4rem;
+}
+
+.product-details_sub-title {
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.product-details_radio {
+    &.filter-radio {
+        gap: 2rem 2.5rem;
+    }
+}
+
+.product-details_price {
+    margin-bottom: 3.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.product-details_button {
+    min-width: 20rem;
+    align-self: flex-start;
+    margin-top: auto;
+}

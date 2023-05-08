@@ -1,0 +1,53 @@
+@import '../../styles/mixins.scss';
+
+.cart {
+    margin-top: 3rem;
+
+    @include vp-1200 {
+        margin-top: 6rem;
+    }
+}
+
+.cart_container {
+    @include vp-768 {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 4rem;
+    }
+
+    @include vp-1024 {
+        grid-template-columns: 3fr 2fr;
+        gap: 15rem;
+    }
+
+    @include vp-1200 {
+        gap: 20rem;
+    }
+}
+
+.cart_amount {
+    margin-top: 3rem;
+
+    @include vp-768 {
+        margin-top: 0;
+    }
+}
+
+.cart_empty {
+    height: 50vh;
+    background-color: var(--color-light-grey);
+}
+
+.cart_empty-container {
+    display: flex;
+    height: 100%;
+}
+
+.cart_empty-wrapper {
+    margin: auto;
+}
+
+.cart_empty-button {
+    margin-top: 3rem;
+    width: 100%;
+}

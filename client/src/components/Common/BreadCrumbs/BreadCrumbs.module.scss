@@ -1,0 +1,18 @@
+.bread-crumbs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bread-crumbs_link {
+    position: relative;
+    font-size: 1.8rem;
+    line-height: 1;
+
+    &:last-child {
+        opacity: 0.4;
+    }
+}
+
+.bread-crumbs_divider {
+    margin: 0 0.75rem;
+}

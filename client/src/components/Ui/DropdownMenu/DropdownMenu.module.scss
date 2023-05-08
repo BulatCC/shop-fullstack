@@ -1,0 +1,92 @@
+@import '../../../styles/mixins.scss';
+
+.dropdown-menu {
+    .button {
+        width: 100%;
+    }
+
+    @include vp-768 {
+        position: relative;
+    }
+}
+
+.dropdown-menu_dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.3rem;
+    border: 0.2rem solid var(--color-default-black);
+
+    &.active {
+        .dropdown-menu_icon {
+            transform: scaleY(-1);
+        }
+    }
+}
+
+.dropdown-menu_icon {
+    transition: var(--default-transition);
+}
+
+.dropdown-menu_dropdown-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.dropdown-menu_content {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 2.5rem;
+    z-index: 1;
+    width: 100%;
+    background-color: var(--color-default-white);
+
+    @include vp-768 {
+        position: absolute;
+        padding-bottom: 0;
+        top: 4.6rem;
+        bottom: unset;
+        border: 0.2rem solid var(--color-default-black);
+    }
+}
+
+.dropdown-menu_header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    padding: 2rem 1rem;
+
+    @include vp-768 {
+        display: none;
+    }
+}
+
+.dropdown-menu_button {
+    padding: 0.5rem;
+}
+
+.dropdown-menu_title {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: fit-content;
+    margin: auto;
+    font-size: 1.8rem;
+}
+
+.dropdown-menu_button-container {
+    margin-top: auto;
+    padding: 0 1.5rem;
+
+    @include vp-768 {
+        padding: 0;
+    }
+}

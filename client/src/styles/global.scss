@@ -1,0 +1,238 @@
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 136.6rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    @include vp-768 {
+        padding: 0 4.5rem;
+    }
+
+    @include vp-1200 {
+        padding: 0 9.8rem;
+    }
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+}
+
+.title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1;
+
+    @include vp-768 {
+        font-size: 2.8rem;
+    }
+
+    @include vp-1200 {
+        font-size: 3.2rem;
+    }
+}
+
+.button {
+    display: inline-block;
+    padding: 2rem 1.6rem;
+    background-color: var(--color-default-black);
+    color: var(--color-default-white);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+    transition: var(--default-transition);
+
+    @include vp-768 {
+        padding: 2.4rem 1.6rem;
+    }
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &--white {
+        background-color: var(--color-default-white);
+        color: var(--color-default-black);
+    }
+
+    &--border-bottom {
+        border-bottom: 0.1rem solid var(--color-default-black);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.hidden {
+    &-tablet {
+        @include vp-768 {
+            display: none !important;
+        }
+    }
+
+    &-mobile {
+        display: none !important;
+
+        @include vp-768 {
+            display: block !important;
+        }
+    }
+}
+
+.content {
+    &+.content {
+        padding-top: 6rem;
+
+        @include vp-768 {
+            padding-top: 10rem;
+        }
+
+        @include vp-1200 {
+            padding-top: 13rem;
+        }
+    }
+    &:last-of-type {
+        padding-bottom: 6rem;
+
+        @include vp-768 {
+            padding-bottom: 10rem;
+        }
+
+        @include vp-1200 {
+            padding-bottom: 13rem;
+        }
+    }
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+
+    @include vp-768 {
+        margin-bottom: 6rem;
+    }
+
+    @include vp-1200 {
+        margin-bottom: 7rem;
+    }
+}
+
+.link {
+    position: relative;
+    font-weight: 500;
+
+    @include vp-768 {
+        font-size: 1.8rem;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0.2rem;
+        bottom: -0.5rem;
+        left: 0;
+        background-color: var(--color-default-black);
+    }
+}
+
+.link-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.close-button {
+    padding: 0;
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    font-size: 0;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 2rem;
+      height: 0.2rem;
+      background-color: var(--color-default-black);
+      left: 0.5rem;
+      top: 1.5rem;
+      transform: rotate(135deg);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+        opacity: 0.7;
+        transition: var(--default-transition);
+    }
+}
+
+.skeleton {
+    position: relative;
+    display: block;
+    background-color: var(--color-light-grey);
+    overflow: hidden;
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(89.7deg, var(--color-light-grey) 0.95%, var(--color-default-white) 49.44%, var(--color-light-grey) 100%);
+        animation-name: example;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes example {
+        0% {
+            left: -100%;
+        }
+
+        100% {
+            left: 100%;
+        }
+    }
+}
+
+
+:root {
+    --default-transition: 0.3s ease;
+
+    // Colors
+    // ---------------------------------
+    --color-default-black: #151C22;
+    --color-default-white: #ffffff;
+    --color-light-grey: #F1F2F4;
+    --color-grey: #727A82;
+    --color-shadow: rgba(0, 0, 0, 0.2);
+    --color-error: #EA0606;
+    --color-pale-red: rgba(234, 6, 6, 0.03);
+}

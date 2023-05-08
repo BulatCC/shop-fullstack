@@ -1,0 +1,35 @@
+.accordion_item {
+    border-top: 1px solid var(--color-light-grey);
+    border-bottom: 1px solid var(--color-light-grey);
+
+    &.active {
+        .accordion_icon {
+            transform: scaleY(-1);
+        }
+    }
+}
+
+.accordion_title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem 1.5rem;
+    cursor: pointer;
+}
+
+.accordion_title {
+    margin: 0;
+    user-select: none;
+    font-weight: 500;
+}
+
+.accordion_icon {
+    transition: var(--default-transition);
+    width: 1.6rem;
+    height: 0.8rem;
+    user-select: none;
+}
+
+.accordion_content {
+    padding: 0.7rem 1.5rem 2.5rem 1.5rem;
+}

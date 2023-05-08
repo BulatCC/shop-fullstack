@@ -1,0 +1,170 @@
+@import '../../../styles/mixins.scss';
+
+.accent {
+    padding: 2.4rem 0 5rem 0;
+    background-color: var(--color-light-grey);
+
+    @include vp-1200 {
+        padding: 0;
+    }
+}
+
+.accent_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include vp-768 {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding-left: 8.8rem;
+        margin-top: -0.5rem;
+        margin-bottom: 2.3rem;
+    }
+
+    @include vp-1200 {
+        padding-left: 16.5rem;
+        padding-right: 12rem;
+        margin: 0;
+    }
+}
+
+.accent_wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+
+    @include vp-768 {
+        margin-bottom: 0;
+    }
+
+    @include vp-1200 {
+        position: relative;
+        width: 100%;
+    }
+}
+
+.accent_nav {
+    @include vp-1200 {
+        position: absolute;
+        flex-direction: column;
+        margin-left: -0.5rem;
+        margin-top: 5rem;
+
+        a {
+            &:first-child,
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.accent_user-block {
+    @include vp-1200 {
+        position: absolute;
+        right: 0;
+        margin-top: 5rem;
+
+        .user-block_list {
+            flex-direction: column-reverse;
+        }
+    }
+}
+
+.accent_img-wrap {
+    padding: 2rem;
+    width: 75.6vw;
+    margin-bottom: 3rem;
+    background-image: url('../../../assets/img/svg/decor.svg'), url('../../../assets/img/svg/decor-invert.svg');
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+    background-size: 36vw;
+    overflow: hidden;
+
+    @include vp-768 {
+        padding: 3rem;
+        margin-bottom: 0;
+        width: 42.2vw;
+        background-size: 20vw;
+    }
+
+    @include vp-1200 {
+        padding: 5rem;
+        width: 53rem;
+        background-size: 23.2rem;
+    }
+}
+
+.accent_img {
+    object-fit: cover;
+    max-height: 79vw;
+    width: 100%;
+
+    @include vp-768 {
+        max-height: 45vw;
+    }
+}
+
+.accent_slogan {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: var(--color-grey);
+
+    @include vp-768 {
+        margin-bottom: 2.5rem;
+    }
+}
+
+.accent_logo {
+    margin-bottom: 4rem;
+
+    @include vp-768 {
+        margin-bottom: 6rem;
+        width: 23.3rem;
+        height: auto;
+    }
+
+    @include vp-1200 {
+        margin-bottom: 5rem;
+        width: 30.5rem;
+    }
+}
+
+.accent_footer {
+    display: none;
+
+    @include vp-768 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @include vp-1200 {
+        position: relative;
+    }
+}
+
+.accent_arrow-down {
+    @include vp-1200 {
+        position: absolute;
+        bottom: 5rem;
+    }
+}
+
+.accent_social {
+    display: flex;
+    gap: 3.5rem;
+
+    @include vp-1200 {
+
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        bottom: 5rem;
+    }
+}
+
+.accent_social-link {
+    font-size: 1.4rem;
+    font-weight: 500;
+}

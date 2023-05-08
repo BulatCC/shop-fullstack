@@ -1,0 +1,35 @@
+@import '../../../styles/mixins.scss';
+
+.nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @include vp-768 {
+        gap: 3rem;
+    }
+
+    &--column {
+        flex-direction: column;
+
+        .nav_link {
+            &:first-child,
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.nav_link {
+    padding: 0.5rem;
+    font-weight: 500;
+
+    &:first-child {
+        margin-left: -0.5rem;
+    }
+
+    &:last-child {
+        margin-right: -0.5rem;
+    }
+}

@@ -1,0 +1,50 @@
+@import '../../../styles/mixins.scss';
+
+.user-block {
+    margin-right: 1rem;
+}
+
+.user-block_list {
+    display: flex;
+    gap: 1.5rem;
+
+    @include vp-768 {
+        gap: 3.5rem;
+    }
+}
+
+.user-block_list-item {
+    position: relative;
+}
+
+.user-block_item {
+    display: block;
+    position: relative;
+    padding: 0.5rem;
+    transition: var(--default-transition);
+    z-index: 1;
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &:first-child {
+        margin-left: -0.5rem;
+    }
+
+    &:last-child {
+        margin-right: -0.5rem;
+    }
+}
+
+.user-block_cart-count {
+    position: absolute;
+    top: -1rem;
+    right: -0.5rem;
+    font-weight: 500;
+}
+
+.user-block_img {
+    width: 100%;
+    max-height: 1.8rem;
+}

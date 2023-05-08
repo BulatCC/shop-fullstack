@@ -1,0 +1,56 @@
+@import '../../../styles/mixins.scss';
+
+.footer {
+    background-color: var(--color-default-black);
+    color: var(--color-default-white);
+}
+
+.footer_container {
+    padding: 5rem 0;
+}
+
+.footer_title {
+    margin-bottom: 3rem;
+    font-size: 2.4rem;
+    font-weight: 800;
+
+    @include vp-768 {
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+}
+
+.footer_links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4.2rem;
+
+    @include vp-768 {
+        display: flex;
+        justify-content: center;
+        gap: 3.5rem;
+    }
+}
+
+.footer_link {
+    color: var(--color-default-white);
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.footer_social-list {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    @include vp-768 {
+        justify-content: center;
+        gap: 3.8rem;
+    }
+}
+
+.footer_social-link {
+    display: block;
+    padding: 0.5rem;
+}
