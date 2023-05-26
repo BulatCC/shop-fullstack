@@ -21,7 +21,7 @@ const LoginForm = ({ classMod, onChangeShow }: LoginFormProps): JSX.Element => {
     return (
         <Form classMod={classMod} onSubmit={handleSubmit(submitHandler)}>
             <FormTitle>Login</FormTitle>
-            <FormInput label='Email' isError={!!errors.email} id='email' errorText={errors.email?.message} register={
+            <FormInput label='Email' isError={!!errors.email} id='email' errorText={errors.email?.message} autoFocus={true} register={
                 register('email', {
                     required: 'Required field',
                     pattern: {

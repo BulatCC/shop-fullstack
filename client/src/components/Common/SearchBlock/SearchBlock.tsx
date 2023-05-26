@@ -14,7 +14,7 @@ const SearchBlock = (): JSX.Element => {
 
     return (
         <div className={`${style['search-block']} `}>
-            {searchActive && <InputField classMod={style['search-block_input']} />}
+            {searchActive && <InputField classMod={style['search-block_input']} autoFocus={true}/>}
             <button className={style['search-block_button']} type="button" onClick={handleSearchShow}>
                 <img className={style['search-block_img']} src="/img/svg/search.svg" alt="поиск" width="20" height="20" />
                 <span className={style['search-block_text']}>Search</span>

@@ -1,7 +1,7 @@
 import { InputFieldProps } from './InputField.type';
 import style from './InputField.module.scss';
 
-const InputField = ({ classMod, placeholder = ' ', id, register, inputType, value, name, onChange }: InputFieldProps): JSX.Element => {
+const InputField = ({ classMod, placeholder = ' ', id, register, inputType, value, name, onChange, autoFocus }: InputFieldProps): JSX.Element => {
     return (
         <input
             className={`${style['input-field']} ${classMod ?? ''}`}
@@ -12,7 +12,7 @@ const InputField = ({ classMod, placeholder = ' ', id, register, inputType, valu
             {...register}
             onChange={onChange}
             name={name}
-            autoFocus
+            autoFocus={autoFocus}
         />
     );
 };

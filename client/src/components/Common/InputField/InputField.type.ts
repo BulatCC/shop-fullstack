@@ -9,4 +9,5 @@ export interface InputFieldProps {
     value?: string;
     name?: string;
     onChange?: (evt: ChangeEvent<HTMLInputElement>) => void;
+    autoFocus?: boolean;
 }

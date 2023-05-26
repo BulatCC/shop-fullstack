@@ -10,4 +10,5 @@ export interface FormInputProps {
     onChange?: (evt: ChangeEvent<HTMLInputElement>) => void;
     register?: any;
     name?: string;
+    autoFocus?: boolean;
 }
