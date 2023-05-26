@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, SetStateAction, Dispatch } from 'react';
 
 const UseOpenMenu = (
     menuActive: boolean,
-    setMenuActive: React.Dispatch<React.SetStateAction<boolean>>,
+    setMenuActive: Dispatch<SetStateAction<boolean>>,
     parentContainerClass: string
 ): void => {
     useEffect(() => {
         const handleClick = (evt: Event): void => {
             const target = evt.target as HTMLElement;
+
             if (menuActive && !target.closest(`.${parentContainerClass}`)) {
                 setMenuActive(false);
             }

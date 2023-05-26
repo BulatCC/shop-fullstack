@@ -1,8 +1,7 @@
-import { ProductCard } from '../../../types/ProductCard';
+import { ProductDataType } from '../../../types/ProductData.type';
 
 export interface ProductsPreviewListProps {
-    products?: ProductCard[] | null;
+    products?: ProductDataType[] | null;
     title: string;
     link: string;
-    anchor?: string;
 }

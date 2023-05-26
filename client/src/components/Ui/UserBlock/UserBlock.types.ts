@@ -1,3 +1,4 @@
 export interface UserBlockProps {
-    classMod?: string;
+    classModUserBlock?: string;
+    classModDropdown?: string;
 }

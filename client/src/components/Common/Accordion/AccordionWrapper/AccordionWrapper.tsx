@@ -5,10 +5,10 @@ const AccordionWrapper = ({ data }: AccordionWrapperProps): JSX.Element => {
     return (
         <ul>
             {data.map(({ title, element }, i) => (
-                <AccordionItem title={title} element={element} key={title + i.toString()} />
+                <AccordionItem title={title} element={element(i)} key={title + i.toString()} />
             ))}
         </ul>
     );
 };
 
-export { AccordionWrapper as Accordion };
+export { AccordionWrapper };

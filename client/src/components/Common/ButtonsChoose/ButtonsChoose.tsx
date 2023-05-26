@@ -1,7 +1,10 @@
-import { ChooseButtons as ButtonsChooseProps } from '../../../types/ButtomChoice';
+import { ButtonChooseProps } from './ButtonsChoose.type';
 import style from './ButtonsChoose.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { MouseEvent } from 'react';
 
-const ButtonsChoose = ({ data, name, onChange, selected, classMod }: ButtonsChooseProps): JSX.Element => {
+const ButtonsChoose = ({ data, name, onChange, selected, classMod }: ButtonChooseProps): JSX.Element => {
+    const navigate = useNavigate();
     return (
         <nav className={`${classMod ?? ''}`}>
             <ul className={style['buttons-choose_list']}>
@@ -11,7 +14,10 @@ const ButtonsChoose = ({ data, name, onChange, selected, classMod }: ButtonsChoo
                             type="button"
                             name={name}
                             value={value}
-                            onClick={onChange}
+                            onClick={(evt: MouseEvent<HTMLButtonElement>) => {
+                                onChange(evt);
+                                navigate(`/${value}`);
+                            }}
                         >{value}</button>
                     </li>
                 ))}

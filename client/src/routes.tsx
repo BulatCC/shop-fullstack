@@ -1,49 +1,71 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Login } from './pages/Login/Login';
-import { Main } from './pages/Main/Main';
-import { Catalog } from './pages/Catalog/Catalog';
-import { Product } from './pages/Product/Product';
-import { Cart } from './pages/Cart/Cart';
-import { Layout } from './components/Layout';
-import { AppRoute } from './Consts';
+import { MainLayout } from './components/LayOuts/MainLayout/MainLayout';
+import { LoginPage } from './pages/LoginPage/LoginPage';
+import { MainPage } from './pages/MainPage/MainPage';
+import { CatalogPage } from './pages/CatalogPage/CatalogPage';
+import { ProductPage } from './pages/ProductPage/ProductPage';
+import { CartPage } from './pages/CartPage/CartPage';
+import { AdminPanelPage } from './pages/AdminPanelPage/AdminPanelPage';
+import { PrivateRoute } from './components/Ui/PrivateRoute/PrivateRoute';
+import { EditProductPage } from './pages/EditProductPage/EditProductPage';
+import { AddProductPage } from './pages/AddProductPage/AddProductPage';
+import { AppRoute } from './constants';
 
 export const appRouter = createBrowserRouter([
     {
         path: AppRoute.Root,
-        element: <Layout />,
+        element: <MainLayout />,
         children: [
             {
                 path: '',
-                element: <Main />
+                element: <MainPage />
             },
             {
-                path: AppRoute.Catalog,
+                path: AppRoute.CatalogGender,
                 children: [
                     {
                         path: '',
-                        element: <Catalog />
+                        element: <CatalogPage />
                     },
                     {
-                        path: AppRoute.ProductId,
-                        element: <Product />
-                    },
-                    {
-                        path: AppRoute.CatalogWoman,
-                        element: <Catalog />
-                    },
-                    {
-                        path: AppRoute.CatalogMan,
-                        element: <Catalog />
+                        path: AppRoute.ProductType,
+                        children: [
+                            {
+                                path: '',
+                                element: <CatalogPage />
+                            },
+                            {
+                                path: AppRoute.ProductId,
+                                element: <ProductPage />
+                            }
+                        ]
                     }
                 ]
             },
             {
                 path: AppRoute.Login,
-                element: <Login />
+                element: <LoginPage />
             },
             {
                 path: AppRoute.Cart,
-                element: <Cart />
+                element: <CartPage />
+            },
+            {
+                path: AppRoute.AdminPanel,
+                children: [
+                    {
+                        path: '',
+                        element: <PrivateRoute component={<AdminPanelPage />}/>
+                    },
+                    {
+                        path: AppRoute.EditProduct,
+                        element: <PrivateRoute component={<EditProductPage />}/>
+                    },
+                    {
+                        path: AppRoute.Add,
+                        element: <PrivateRoute component={<AddProductPage />}/>
+                    }
+                ]
             }
         ]
     }

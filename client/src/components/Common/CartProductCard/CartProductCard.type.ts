@@ -1,9 +1,9 @@
+import { ProductDataType } from '../../../types/ProductData.type';
+
 export interface CartProductCardProps {
-    id: string;
-    name: string;
-    img: string;
-    link: string;
-    color: string;
+    data: ProductDataType;
     size: string;
-    price: string;
+    color: string;
+    index: number;
+    handleDelete: (index: number) => void;
 }

@@ -1,0 +1,11 @@
+.t-body {
+    tr {
+        &:nth-child(even) {
+            background-color: var(--color-light-grey);
+        }
+    }
+
+      td {
+          border-collapse: collapse;
+      }
+}

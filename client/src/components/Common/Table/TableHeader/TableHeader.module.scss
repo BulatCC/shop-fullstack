@@ -1,0 +1,11 @@
+.t-header {
+    tr {
+        background-color: var(--color-light-grey);
+    }
+
+    th {
+        padding: 0.5rem;
+        border-collapse: collapse;
+        text-align: left;
+    }
+}

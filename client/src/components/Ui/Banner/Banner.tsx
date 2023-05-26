@@ -3,9 +3,9 @@ import { BannerProps } from './Banner.type';
 import { Img } from '../../Common/Img/Img';
 import style from './Banner.module.scss';
 
-const Banner = ({ link, imgPath, text, title }: BannerProps): JSX.Element => {
+const Banner = ({ link, imgPath, text, title, classMod }: BannerProps): JSX.Element => {
     return (
-        <section className="content">
+        <section className={`content ${classMod ?? ''}`}>
             <div className="container">
                 <div className={style.banner}>
                     <div className={style.banner_container}>

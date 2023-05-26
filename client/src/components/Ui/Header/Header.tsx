@@ -1,6 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
 import { UserBlock } from '../UserBlock/UserBlock';
-import { AppRoute } from '../../../Consts';
+import { AppRoute } from '../../../constants';
 import style from './Header.module.scss';
 
 const Header = (): JSX.Element => {

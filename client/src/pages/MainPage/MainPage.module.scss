@@ -1,0 +1,18 @@
+@import '../../styles/mixins.scss';
+
+.main-page_container {
+    display: grid;
+}
+
+.main-page_banner {
+    grid-row: 3/4;
+    padding-top: 6rem;
+
+    @include vp-768 {
+        padding-top: 10rem;
+    }
+
+    @include vp-1200 {
+        padding-top: 13rem;
+    }
+}

@@ -1,6 +1,6 @@
 export interface AccordionWrapperProps {
     data: Array<{
         title: string;
-        element: JSX.Element;
+        element: (key: number) => JSX.Element;
     }>;
-};
+}

@@ -1,9 +1,9 @@
-import { ProductCard } from '../../Common/ProductCard/ProductCard/ProductCard';
+import { ProductCard } from '../../Common/ProductCard/ProductCard';
 import { ProductListProps } from './ProductList.types';
 import style from './ProductList.module.scss';
-import { ProductCardSkeleton } from '../../Common/ProductCard/ProductCardSkeleton/ProductCardSkeleton';
+import { ProductCardSkeleton } from '../../Common/ProductCard/ProductCard.skeleton';
 
-const BIG_IMAGE_INDEX = 4;
+const BIG_IMAGE_INDEX = 8;
 
 const addClass = (index: number): boolean | string => {
     if (index === BIG_IMAGE_INDEX) {
@@ -28,7 +28,7 @@ const ProductList = ({ products, classMod, isCatalog, skeletonNumber }: ProductL
         return (
             skeletonLoaderData.map((_, i) => (
                 <li key={i} className={`${addClass(i) ? style['product-list_item--big'] : ''}`} >
-                    <ProductCardSkeleton isCatalog={isCatalog} />
+                    <ProductCardSkeleton isCatalog={isCatalog} isBig={addClass(i)} />
                 </li>
             ))
         );

@@ -1,0 +1,30 @@
+@import '../../../styles/mixins.scss';
+
+.form-edit {
+    display: grid;
+    grid-template-columns: minmax(5rem, 30rem) auto;
+    gap: 1rem;
+
+    @include vp-768 {
+        gap: 2rem;
+    }
+}
+
+.form-edit_label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+
+    @include vp-768 {
+        font-size: 1.8rem;
+    }
+}
+
+.form-edit_input-text,
+.form-edit_input-select {
+    padding: 0.5rem;
+    min-height: 3.3rem;
+    border: 0.1rem solid var(--color-pale-grey);
+    outline: none;
+    resize: vertical;
+}

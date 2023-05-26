@@ -66,9 +66,14 @@
         right: 0;
         margin-top: 5rem;
 
-        .user-block_list {
-            flex-direction: column-reverse;
+        ul {
+            flex-direction: column;
         }
+    }
+}
+.accent_user-block-dropdown {
+    @include vp-1200 {
+        left: -85%;
     }
 }
 
@@ -141,13 +146,6 @@
 
     @include vp-1200 {
         position: relative;
-    }
-}
-
-.accent_arrow-down {
-    @include vp-1200 {
-        position: absolute;
-        bottom: 5rem;
     }
 }
 

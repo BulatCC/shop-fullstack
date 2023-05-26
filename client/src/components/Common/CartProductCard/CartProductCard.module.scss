@@ -39,7 +39,14 @@
 }
 
 .cart-product-card_text {
+    width: fit-content;
     color: var(--color-grey);
+
+    &--color {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
 }
 
 .cart-product-card_price {

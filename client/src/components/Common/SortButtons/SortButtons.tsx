@@ -1,11 +1,11 @@
-import { ChooseButtons as SortButtonsProps } from '../../../types/ButtomChoice';
+import { SortButtonsProps } from './SortButtons.type';
 import style from './SortButtons.module.scss';
 
 const SortButtons = ({ data, name, onChange, selected, classMod }: SortButtonsProps): JSX.Element => {
     return (
         <ul className={`${style['sort-buttons']} ${classMod ?? ''}`}>
-            {data.map(({ id, value }) => (
-                <li key={id}>
+            {data.map((value) => (
+                <li key={value}>
                     <button className={`${style['sort-buttons_button']} ${value === selected ? style.active : ''}`}
                         type="button"
                         name={name}

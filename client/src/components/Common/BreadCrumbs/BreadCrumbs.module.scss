@@ -1,3 +1,5 @@
+@import '../../../styles/mixins.scss';
+
 .bread-crumbs {
     display: flex;
     flex-wrap: wrap;
@@ -5,14 +7,38 @@
 
 .bread-crumbs_link {
     position: relative;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    font-weight: 500;
     line-height: 1;
+
+    @include vp-768 {
+        font-size: 1.8rem;
+    }
+
+    &:not(:first-child) {
+        margin-left: 2.1rem;
+
+        @include vp-768 {
+            margin-left: 3rem;
+        }
+
+        &::before {
+            content: '/';
+            position: absolute;
+            left: -1.3rem;
+            opacity: 1;
+
+            @include vp-768 {
+                left: -1.7rem;
+            }
+        }
+    }
 
     &:last-child {
         opacity: 0.4;
     }
-}
 
-.bread-crumbs_divider {
-    margin: 0 0.75rem;
+    &::first-letter {
+        text-transform: uppercase;
+    }
 }

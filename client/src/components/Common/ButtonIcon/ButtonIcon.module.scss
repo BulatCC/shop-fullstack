@@ -1,0 +1,11 @@
+.button-icon {
+    transition: var(--default-transition);
+    user-select: none;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+.button-icon_img {
+    min-width: 1.5rem;
+}

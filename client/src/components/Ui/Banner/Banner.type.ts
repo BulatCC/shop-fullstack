@@ -3,4 +3,5 @@ export interface BannerProps {
     link?: string;
     text?: string;
     title?: string;
+    classMod?: string;
 }

@@ -1,0 +1,15 @@
+@import '../../styles/mixins.scss';
+
+.catalog-page {
+    .catalog-page_container {
+        margin-bottom: 2rem;
+    
+        @include vp-768 {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.catalog-page_bread-crumbs {
+    margin-bottom: 3rem;
+}

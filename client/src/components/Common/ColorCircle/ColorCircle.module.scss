@@ -1,0 +1,18 @@
+@import '../../../styles/mixins.scss';
+
+.color-circle {
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--color-circle-color);
+
+  @include vp-1200 {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  & + .color-circle {
+    margin-left: 0.5rem;
+  }
+}
