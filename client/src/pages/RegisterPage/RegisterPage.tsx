@@ -26,7 +26,6 @@ const RegisterPage = (): JSX.Element => {
     return (
         <div className={`${style.login} container`}>
             <RegisterForm classMod={style.login_form} />
-            <div className={classes['lds-ellipsis']}></div>
         </div>
     );
 };
