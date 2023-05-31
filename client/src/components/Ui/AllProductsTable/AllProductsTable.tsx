@@ -13,10 +13,7 @@ const AllProductsTable = ({ data }: AllProductsTableProps): JSX.Element => {
     };
 
     const getSizes = (sizes: productInfo[]): string => {
-        const sizeData = sizes.reduce((acc: Array<Record<string, string>>, { size }) => {
-            acc.push(size);
-            return acc;
-        }, []);
+        const sizeData = sizes.map(({ size }) => size);
 
         const newData = sizeData.reduce((acc: string[], sizes) => {
             Object.keys(sizes).map(size => acc.push(' ' + size));

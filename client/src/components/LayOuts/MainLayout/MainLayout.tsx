@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Header } from '../../Ui/Header/Header';
 import { Footer } from '../../Ui/Footer/Footer';
-import { useScrollTop } from '../../../hooks/UseScrollTop';
+import { useScrollTop } from '../../../hooks/useScrollTop';
 import { useAppDispatch } from '../../../store/ReduxHooks';
 import { useEffect } from 'react';
 import { cartLocalStorage } from '../../../services/localStorage/cartLocalStorage';

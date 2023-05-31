@@ -3,7 +3,7 @@ import { InitialAppState, AppState, CartProduct } from './AppState.type';
 import { AuthorizationStatus } from '../../constants';
 
 const initialState: InitialAppState = {
-    authorizationStatus: AuthorizationStatus.Auth,
+    authorizationStatus: AuthorizationStatus.NoAuth,
     cart: []
 };
 

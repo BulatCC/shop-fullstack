@@ -1,6 +1,6 @@
 import { useEffect, SetStateAction, Dispatch } from 'react';
 
-const UseOpenMenu = (
+const useOpenMenu = (
     menuActive: boolean,
     setMenuActive: Dispatch<SetStateAction<boolean>>,
     parentContainerClass: string
@@ -32,4 +32,4 @@ const UseOpenMenu = (
     }, [menuActive]);
 };
 
-export { UseOpenMenu };
+export { useOpenMenu };

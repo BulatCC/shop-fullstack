@@ -1,7 +1,7 @@
 import { useState, MouseEvent } from 'react';
 import { InputField } from '../InputField/InputField';
 import style from './SearchBlock.module.scss';
-import { UseOpenMenu } from '../../../hooks/UseOpenMenu';
+import { useOpenMenu } from '../../../hooks/useOpenMenu';
 
 const SearchBlock = (): JSX.Element => {
     const [searchActive, setSearchActive] = useState<boolean>(false);
@@ -10,7 +10,7 @@ const SearchBlock = (): JSX.Element => {
         setSearchActive(true);
     };
 
-    UseOpenMenu(searchActive, setSearchActive, style['search-block_input']);
+    useOpenMenu(searchActive, setSearchActive, style['search-block_input']);
 
     return (
         <div className={`${style['search-block']} `}>

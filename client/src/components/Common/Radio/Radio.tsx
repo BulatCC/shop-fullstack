@@ -1,10 +1,11 @@
 import { CSSProperties } from 'react';
 import { RadioProps } from './Radio.type';
 import style from './Radio.module.scss';
+import cn from 'classnames';
 
 const Radio = ({ data, name, checked, onChange, classMod }: RadioProps): JSX.Element => {
     return (
-        <ul className={`${style.radio} ${classMod ?? ''}`}>
+        <ul className={cn(style['radio'], classMod)}>
             {data.map((value) => (
                 <li className={style.radio_item} key={value}>
                     <input

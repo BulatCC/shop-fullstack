@@ -24,7 +24,7 @@ const MainPage = (): JSX.Element => {
             <Accent />
             <Banner
                 link={ClothsGender.Woman}
-                imgPath="/img/banner"
+                imgPath="/img/banner.jpg"
                 title="Fall 2023"
                 text="Street fashion collection"
                 classMod={style['main-page_banner']}

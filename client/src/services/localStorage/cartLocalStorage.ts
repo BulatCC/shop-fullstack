@@ -2,7 +2,7 @@ import { KeyName } from '../../constants';
 const setCartData = (cartData: string): void => {
     const storageCartData = getCartData();
     if (storageCartData) {
-        const normalizedCartData: any[] = JSON.parse(storageCartData);
+        const normalizedCartData = JSON.parse(storageCartData);
         normalizedCartData.push(cartData);
         localStorage.setItem(KeyName.Cart, JSON.stringify(normalizedCartData));
     } else {

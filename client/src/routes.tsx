@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { MainLayout } from './components/LayOuts/MainLayout/MainLayout';
 import { LoginPage } from './pages/LoginPage/LoginPage';
+import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 import { MainPage } from './pages/MainPage/MainPage';
 import { CatalogPage } from './pages/CatalogPage/CatalogPage';
 import { ProductPage } from './pages/ProductPage/ProductPage';
@@ -45,6 +46,10 @@ export const appRouter = createBrowserRouter([
             {
                 path: AppRoute.Login,
                 element: <LoginPage />
+            },
+            {
+                path: AppRoute.Register,
+                element: <RegisterPage />
             },
             {
                 path: AppRoute.Cart,

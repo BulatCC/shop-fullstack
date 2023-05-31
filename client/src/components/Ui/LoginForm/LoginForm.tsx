@@ -4,15 +4,28 @@ import { FormInput } from '../../Common/Form/FormInput/FormInput';
 import { FormButton } from '../../Common/Form/FormButton/FormButton';
 import { LoginFormProps, LoginFormFields } from './LoginForm.type';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { EMAIL_REGEX, AuthorizationStatus } from '../../../constants';
+import { EMAIL_REGEX, AuthorizationStatus, AppRoute } from '../../../constants';
 import { useAppDispatch } from '../../../store/ReduxHooks';
 import { setAuthorizationStatus } from '../../../store/AppState/AppState';
+import { Link } from 'react-router-dom';
 
 const LoginForm = ({ classMod, onChangeShow }: LoginFormProps): JSX.Element => {
     const dispatch = useAppDispatch();
-    const { register, handleSubmit, formState: { errors, isValid } } = useForm<LoginFormFields>({
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isValid }
+    } = useForm<LoginFormFields>({
         mode: 'onBlur'
     });
+
+    const validationSchema = {
+        required: 'Required field',
+        pattern: {
+            value: EMAIL_REGEX,
+            message: 'Email is not valid'
+        }
+    };
 
     const submitHandler: SubmitHandler<LoginFormFields> = (data) => {
         console.log(data);
@@ -21,15 +34,15 @@ const LoginForm = ({ classMod, onChangeShow }: LoginFormProps): JSX.Element => {
     return (
         <Form classMod={classMod} onSubmit={handleSubmit(submitHandler)}>
             <FormTitle>Login</FormTitle>
-            <FormInput label='Email' isError={!!errors.email} id='email' errorText={errors.email?.message} autoFocus={true} register={
-                register('email', {
-                    required: 'Required field',
-                    pattern: {
-                        value: EMAIL_REGEX,
-                        message: 'Email is not valid'
-                    }
-                })}/>
-            <FormInput label='Password (6 characters at least)' inputType={'password'} isError={!!errors.password} id='password' errorText={errors.password?.message} register={
+            <FormInput label='Email' isError={!!errors.email} name='email' errorText={errors.email?.message} autoFocus={true} register={register('email', {
+                required: 'Required field',
+                pattern: {
+                    value: EMAIL_REGEX,
+                    message: 'Email is not valid'
+                }
+            })}
+            validationSchema={validationSchema}/>
+            <FormInput label='Password (6 characters at least)' inputType={'password'} isError={!!errors.password} name={'password'} errorText={errors.password?.message} register={
                 register('password', {
                     required: 'Required field',
                     minLength: {
@@ -38,7 +51,7 @@ const LoginForm = ({ classMod, onChangeShow }: LoginFormProps): JSX.Element => {
                     }
                 })}/>
             <FormButton text='Log In' type='submit' disabled={!isValid}/>
-            <p>Dont have account? <span className={'link'} onClick={onChangeShow}>Sign Up</span></p>
+            <p>Dont have account? <Link className='link' to={`/${AppRoute.Register}`}>Sign Up</Link></p>
         </Form>
     );
 };

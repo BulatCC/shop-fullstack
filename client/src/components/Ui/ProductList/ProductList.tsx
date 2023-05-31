@@ -17,7 +17,7 @@ const ProductList = ({ products, classMod, isCatalog, skeletonNumber }: ProductL
         if (products) {
             return (
                 products.map((product, i) => (
-                    <li key={product.id} className={`${addClass(i) ? style['product-list_item--big'] : ''}`} >
+                    <li key={product.id} className={style['product-list_item']} >
                         <ProductCard productCardData={product} isBig={addClass(i)} isCatalog={isCatalog} />
                     </li>
                 ))
@@ -27,7 +27,7 @@ const ProductList = ({ products, classMod, isCatalog, skeletonNumber }: ProductL
         const skeletonLoaderData = Array.from(Array(skeletonNumber), (_, i) => i);
         return (
             skeletonLoaderData.map((_, i) => (
-                <li key={i} className={`${addClass(i) ? style['product-list_item--big'] : ''}`} >
+                <li key={i} className={style['product-list_item']} >
                     <ProductCardSkeleton isCatalog={isCatalog} isBig={addClass(i)} />
                 </li>
             ))

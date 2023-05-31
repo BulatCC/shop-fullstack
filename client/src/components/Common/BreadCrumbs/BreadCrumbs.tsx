@@ -2,9 +2,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { BreadCrumbsProps, BreadCrumbsPath } from './BreadCrumbs.type';
 import style from './BreadCrumbs.module.scss';
 import { AppRoute } from '../../../constants';
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
+import cn from 'classnames';
 
 const BreadCrumbs = ({ classMod, productName }: BreadCrumbsProps): JSX.Element => {
+    const uniqId = useId();
     const location = useLocation().pathname;
     const urlPath = location.split('/').slice(1);
     const breadCrumbsDefaultPath = urlPath.map(path => ({
@@ -19,7 +21,6 @@ const BreadCrumbs = ({ classMod, productName }: BreadCrumbsProps): JSX.Element =
 
     useEffect(() => {
         if (productName) {
-            // const index = breadCrumbsPath.findIndex(({ name }) => name === productName?.id);
             const newBreadCrumbsPath = [...breadCrumbsDefaultPath];
             newBreadCrumbsPath[newBreadCrumbsPath.length - 1] = {
                 ...breadCrumbsPath[newBreadCrumbsPath.length - 1],
@@ -35,15 +36,15 @@ const BreadCrumbs = ({ classMod, productName }: BreadCrumbsProps): JSX.Element =
             path.push(name);
             const constructedPath = path.join('/');
             if (i === urlPath.length - 1) {
-                return <span className={style['bread-crumbs_link']} key={i}>{name}</span>;
+                return <span className={style['bread-crumbs_link']} key={uniqId}>{name}</span>;
             } else {
-                return <Link className={style['bread-crumbs_link']} to={`/${constructedPath}`} key={i}>{name}</Link>;
+                return <Link className={style['bread-crumbs_link']} to={`/${constructedPath}`} key={uniqId}>{name}</Link>;
             }
         });
     };
 
     return (
-        <nav className={`${style['bread-crumbs']} ${classMod ?? ''}`}>
+        <nav className={cn(style['bread-crumbs'], classMod)}>
             <Link className={style['bread-crumbs_link']} to={AppRoute.Root}>Main</Link>
             {renderBreadCrumbs()}
         </nav>

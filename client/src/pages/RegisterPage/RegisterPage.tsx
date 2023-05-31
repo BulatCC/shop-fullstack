@@ -1,11 +1,11 @@
-import style from './LoginPage.module.scss';
-import { LoginForm } from '../../components/Ui/LoginForm/LoginForm';
+import style from './RegisterPage.module.scss';
+import { RegisterForm } from '../../components/Ui/RegisterForm/RegisterForm';
 import { useAppSelector } from '../../store/ReduxHooks';
 import { getAuthorizationStatus } from '../../store/AppState/AppState';
 import { AuthorizationStatus, AppRoute } from '../../constants';
 import { Navigate } from 'react-router-dom';
 
-const LoginPage = (): JSX.Element => {
+const RegisterPage = (): JSX.Element => {
     const authStatus = useAppSelector(getAuthorizationStatus());
 
     if (authStatus === AuthorizationStatus.Unknown) {
@@ -25,9 +25,10 @@ const LoginPage = (): JSX.Element => {
 
     return (
         <div className={`${style.login} container`}>
-            <LoginForm classMod={style.login_form}/>
+            <RegisterForm classMod={style.login_form} />
+            <div className={classes['lds-ellipsis']}></div>
         </div>
     );
 };
 
-export { LoginPage };
+export { RegisterPage };

@@ -1,21 +1,15 @@
 import { InputField } from '../../InputField/InputField';
 import { FormInputProps } from './FormInput.type';
 import style from '../Form.module.scss';
+import cn from 'classnames';
 
-const FormInput = ({ label, id, errorText, isError, register, inputType, value, name, onChange, autoFocus }: FormInputProps): JSX.Element => {
+const FormInput = ({ label, id, errorText, isError, ...rest }: FormInputProps): JSX.Element => {
     const labelText = isError ? errorText : label;
     return (
-        <div className={`${style.form_container} ${isError ? style.error : ''}`}>
-            <InputField
-                id={id}
-                classMod={style.form_input}
-                register={register}
-                inputType={inputType}
-                value={value}
-                name={name}
-                onChange={onChange}
-                autoFocus={autoFocus}
-            />
+        <div className={cn(style.form_container, {
+            [style.error]: isError
+        })}>
+            <InputField id={id} classMod={style.form_input} {...rest} />
             <label className={style.form_label} htmlFor={id}>{labelText}</label>
         </div>
     );

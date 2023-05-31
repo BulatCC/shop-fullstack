@@ -102,7 +102,6 @@ const Catalog = ({ gender }: CatalogProps): JSX.Element => {
                         selected={gender}
                     />
                 </div>
-                {/* <FilterCatalog classMod={style['catalog_dropdown-menu']} /> */}
             </div>
             <section className="content">
                 <ProductList

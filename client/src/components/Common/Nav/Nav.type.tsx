@@ -5,4 +5,4 @@ export interface NavProps {
         link: string;
     }>;
     classMod?: string;
-};
+}

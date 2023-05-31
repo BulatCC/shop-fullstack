@@ -6,7 +6,7 @@ import style from './UserBlock.module.scss';
 import { useAppDispatch, useAppSelector } from '../../../store/ReduxHooks';
 import { getCart, getAuthorizationStatus, setAuthorizationStatus } from '../../../store/AppState/AppState';
 import { MouseEvent, useState } from 'react';
-import { UseOpenMenu } from '../../../hooks/UseOpenMenu';
+import { useOpenMenu } from '../../../hooks/useOpenMenu';
 
 const UserBlock = ({ classModUserBlock, classModDropdown }: UserBlockProps): JSX.Element => {
     const dispatch = useAppDispatch();
@@ -23,7 +23,7 @@ const UserBlock = ({ classModUserBlock, classModDropdown }: UserBlockProps): JSX
         dispatch(setAuthorizationStatus(AuthorizationStatus.NoAuth));
     };
 
-    UseOpenMenu(dropdownShow, setDropdownShow, 'js-dropdown');
+    useOpenMenu(dropdownShow, setDropdownShow, 'js-dropdown');
 
     return (
         <div className={`${style['user-block']} ${classModUserBlock ?? ''}`}>

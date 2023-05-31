@@ -2,6 +2,7 @@ export const AppRoute = {
     Root: '/',
     NotFound: '*',
     Login: 'login',
+    Register: 'register',
     Catalog: 'catalog',
     CatalogGender: ':gender',
     ProductType: ':productType',
