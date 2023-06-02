@@ -52,7 +52,7 @@ const productsData = [
                 '2XL': '5'
             }
         }],
-        collection: 'casual',
+        collectionName: 'casual',
         description: 'Overalls in washed organic cotton denim. Collar, button fly, and adjustable belt at waist. Chest pockets with flap. Long, gently flared sleeves and straight legs with front pockets and back pockets.'
     }),
     (index: number): ProductDataType => ({
@@ -107,7 +107,7 @@ const productsData = [
                 '2XL': '5'
             }
         }],
-        collection: 'casual',
+        collectionName: 'casual',
         description: 'Overalls in washed organic cotton denim. Collar, button fly, and adjustable belt at waist. Chest pockets with flap. Long, gently flared sleeves and straight legs with front pockets and back pockets.'
     }),
     (index: number): ProductDataType => ({
@@ -150,7 +150,7 @@ const productsData = [
                 XL: '3'
             }
         }],
-        collection: 'casual',
+        collectionName: 'casual',
         description: 'Overalls in washed organic cotton denim. Collar, button fly, and adjustable belt at waist. Chest pockets with flap. Long, gently flared sleeves and straight legs with front pockets and back pockets.'
     }),
     (index: number): ProductDataType => ({
@@ -194,7 +194,7 @@ const productsData = [
                 '2XL': '5'
             }
         }],
-        collection: 'casual',
+        collectionName: 'casual',
         description: 'Overalls in washed organic cotton denim. Collar, button fly, and adjustable belt at waist. Chest pockets with flap. Long, gently flared sleeves and straight legs with front pockets and back pockets.'
     }),
     (index: number): ProductDataType => ({
@@ -235,7 +235,7 @@ const productsData = [
                 XL: '3'
             }
         }],
-        collection: 'casual',
+        collectionName: 'casual',
         description: 'Overalls in washed organic cotton denim. Collar, button fly, and adjustable belt at waist. Chest pockets with flap. Long, gently flared sleeves and straight legs with front pockets and back pockets.'
     }),
     (index: number): ProductDataType => ({
@@ -276,7 +276,7 @@ const productsData = [
                 L: '4'
             }
         }],
-        collection: 'classic',
+        collectionName: 'classic',
         description: 'Overalls in washed organic cotton denim. Collar, button fly, and adjustable belt at waist. Chest pockets with flap. Long, gently flared sleeves and straight legs with front pockets and back pockets.'
     }),
     (index: number): ProductDataType => ({
@@ -317,7 +317,7 @@ const productsData = [
                 L: '4'
             }
         }],
-        collection: 'classic',
+        collectionName: 'classic',
         description: 'Overalls in washed organic cotton denim. Collar, button fly, and adjustable belt at waist. Chest pockets with flap. Long, gently flared sleeves and straight legs with front pockets and back pockets.'
     }),
     (index: number): ProductDataType => ({
@@ -359,7 +359,7 @@ const productsData = [
                 XL: '3'
             }
         }],
-        collection: 'casual',
+        collectionName: 'casual',
         description: 'Overalls in washed organic cotton denim. Collar, button fly, and adjustable belt at waist. Chest pockets with flap. Long, gently flared sleeves and straight legs with front pockets and back pockets.'
     }),
     (index: number): ProductDataType => ({
@@ -412,7 +412,7 @@ const productsData = [
                 '2XL': '5'
             }
         }],
-        collection: 'classic',
+        collectionName: 'classic',
         description: 'Overalls in washed organic cotton denim. Collar, button fly, and adjustable belt at waist. Chest pockets with flap. Long, gently flared sleeves and straight legs with front pockets and back pockets.'
     })
 ];

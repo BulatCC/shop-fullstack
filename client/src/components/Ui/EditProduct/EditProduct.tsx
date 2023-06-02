@@ -78,8 +78,8 @@ const EditProduct = ({ formData }: EditProductProps): JSX.Element => {
                 <FormEditLabel idFor={'description'}>Description</FormEditLabel>
                 <FormEdiTextArea name='description' id='description' required={true} defaultValue={formData.description} />
 
-                <FormEditLabel idFor={'collection'}>Collection</FormEditLabel>
-                <FormEditSelect name='collection' id='collection' defaultValue={formData.collection} >
+                <FormEditLabel idFor={'collectionName'}>Collection</FormEditLabel>
+                <FormEditSelect name='collectionName' id='collectionName' defaultValue={formData.collectionName} >
                     <option value={Collection.Casual}>{Collection.Casual}</option>
                     <option value={Collection.Classic}>{Collection.Classic}</option>
                 </FormEditSelect>

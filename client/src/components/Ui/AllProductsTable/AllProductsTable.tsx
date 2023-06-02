@@ -46,7 +46,7 @@ const AllProductsTable = ({ data }: AllProductsTableProps): JSX.Element => {
                 </tr>
             </TableHeader>
             <TableBody>
-                {data.map(({ id, gender, productType, img, title, price, colors, collection }) => (
+                {data.map(({ id, gender, productType, img, title, price, colors, collectionName }) => (
                     <tr key={id}>
                         <td>{id}</td>
                         <td><Link style={{
@@ -57,7 +57,7 @@ const AllProductsTable = ({ data }: AllProductsTableProps): JSX.Element => {
                         <td>{productType}</td>
                         <td>{price}</td>
                         <td>{gender}</td>
-                        <td>{collection}</td>
+                        <td>{collectionName}</td>
                         <td>
                             <div className='d-flex'>{renderColors(colors)}</div>
                         </td>

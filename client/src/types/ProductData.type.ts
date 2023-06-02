@@ -15,6 +15,6 @@ export interface ProductDataType {
     bestSeller: boolean;
     gender: string;
     colors: ColorsDataType[];
-    collection: string;
+    collectionName: string;
     description: string;
 }

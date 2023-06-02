@@ -17,6 +17,7 @@ const PRODUCT_AJAX_LOAD_LIMIT = 8;
 let isLoading = false;
 const Catalog = ({ gender }: CatalogProps): JSX.Element => {
     const [catalogData, setCatalogData] = useState<ProductDataType[] | null>();
+    console.log(catalogData)
     const [ajaxLoading, setAjaxLoading] = useState<boolean>(isLoading);
     const [catalogDataAmount, setCatalogDataAmount] = useState<number>(0);
     const [requestParams, setRequestParams] = useState<SortData>({

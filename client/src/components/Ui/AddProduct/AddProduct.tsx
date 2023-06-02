@@ -33,8 +33,8 @@ const AddProduct = (): JSX.Element => {
                 <FormEditLabel idFor={'description'}>Description</FormEditLabel>
                 <FormEdiTextArea name='description' id='description' required={true} />
 
-                <FormEditLabel idFor={'collection'}>Collection</FormEditLabel>
-                <FormEditSelect name='collection' id='collection' defaultValue={Collection.Casual} >
+                <FormEditLabel idFor={'collectionName'}>Collection</FormEditLabel>
+                <FormEditSelect name='collectionName' id='collectionName' defaultValue={Collection.Casual} >
                     <option value={Collection.Casual}>{Collection.Casual}</option>
                     <option value={Collection.Classic}>{Collection.Classic}</option>
                 </FormEditSelect>
