@@ -1,4 +1,6 @@
 {
   "port": 8080,
-  "mongoUri": "mongodb+srv://bulatsrc:123456Jjdhw&hh==-@cluster0.wewhdsr.mongodb.net/shopData?retryWrites=true&w=majority"
+  "mongoUri": "mongodb+srv://bulatsrc:123456Jjdhw&hh==-@cluster0.wewhdsr.mongodb.net/shopData?retryWrites=true&w=majority",
+  "accessSecret": "super secret key",
+  "refreshSecret": "super secret refresh key"
 }
