@@ -1,5 +1,5 @@
 export interface DropdownMenuProps {
     title: string;
-    children: JSX.Element[];
+    children: JSX.Element[] | JSX.Element;
     classMod?: string;
 }

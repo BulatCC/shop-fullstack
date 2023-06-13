@@ -1,16 +1,9 @@
-import { ColorsDataType } from '../../../types/ProductData.type';
-
-export interface ProductDetailsData {
-    title: string;
-    description: string;
-    colors: ColorsDataType[];
-    price: string;
-}
+import { ProductDataType } from '../../../types/ProductData.type';
 
 export interface ProductDetailsComponentProps {
     colorTitle: string;
     sizeTitle: string;
-    data: ProductDetailsData;
+    data: ProductDataType;
     selected: {
         color: string;
         size: string;
@@ -23,5 +16,10 @@ export interface ProductDetailsComponentProps {
 }
 
 export type ProductDetailsProps = Omit<ProductDetailsComponentProps, 'data'> & {
-    data: ProductDetailsData | null;
+    data: ProductDataType | null;
+};
+
+export interface SizeType {
+    title: string;
+    value: string;
 };

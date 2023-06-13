@@ -4,6 +4,7 @@ export interface RegisterFormProps {
 }
 
 export interface RegisterFormFields {
+    name: string;
     email: string;
     password: string;
     confirm_password: string;

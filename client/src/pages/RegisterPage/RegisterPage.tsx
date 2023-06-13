@@ -1,7 +1,7 @@
 import style from './RegisterPage.module.scss';
 import { RegisterForm } from '../../components/Ui/RegisterForm/RegisterForm';
-import { useAppSelector } from '../../store/ReduxHooks';
-import { getAuthorizationStatus } from '../../store/AppState/AppState';
+import { useAppSelector } from '../../store/reduxHooks';
+import { getAuthorizationStatus } from '../../store/auth/auth';
 import { AuthorizationStatus, AppRoute } from '../../constants';
 import { Navigate } from 'react-router-dom';
 

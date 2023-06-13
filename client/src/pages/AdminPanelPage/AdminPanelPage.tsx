@@ -1,7 +1,7 @@
 import { BreadCrumbs } from '../../components/Common/BreadCrumbs/BreadCrumbs';
 import { Pagination } from '../../components/Common/Pagination/Pagination';
 import { useEffect, useState, useRef } from 'react';
-import { API } from '../../services/api/api';
+import { mockAPI } from '../../services/api/api';
 import { RequestParams } from './AdminPanelPage.type';
 import { ProductDataType } from '../../types/ProductData.type';
 import { AllProductsTable } from '../../components/Ui/AllProductsTable/AllProductsTable';
@@ -19,7 +19,7 @@ const AdminPanelPage = (): JSX.Element => {
     });
 
     useEffect(() => {
-        API.getAllData(requestParams)
+        mockAPI.getAllData(requestParams)
             .then(({ productCrop, productsAmount }) => {
                 setAllProducts(productCrop);
                 setAllProductsNumber(productsAmount);

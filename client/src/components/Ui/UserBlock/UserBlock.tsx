@@ -3,10 +3,12 @@ import { UserBlockProps } from './UserBlock.types';
 import { SearchBlock } from '../../Common/SearchBlock/SearchBlock';
 import { AppRoute, AuthorizationStatus } from '../../../constants';
 import style from './UserBlock.module.scss';
-import { useAppDispatch, useAppSelector } from '../../../store/ReduxHooks';
-import { getCart, getAuthorizationStatus, setAuthorizationStatus } from '../../../store/AppState/AppState';
+import { useAppDispatch, useAppSelector } from '../../../store/reduxHooks';
+import { getAuthorizationStatus, setAuthorizationStatus } from '../../../store/auth/auth';
+import { getCart } from '../../../store/cart/cart';
 import { MouseEvent, useState } from 'react';
 import { useOpenMenu } from '../../../hooks/useOpenMenu';
+import { authLocalStorage } from '../../../services/localStorage/authLocalStorage/authLocalStorage';
 
 const UserBlock = ({ classModUserBlock, classModDropdown }: UserBlockProps): JSX.Element => {
     const dispatch = useAppDispatch();
@@ -21,6 +23,7 @@ const UserBlock = ({ classModUserBlock, classModDropdown }: UserBlockProps): JSX
     const handleLogout = (): void => {
         console.log('Logout');
         dispatch(setAuthorizationStatus(AuthorizationStatus.NoAuth));
+        authLocalStorage.removeAuthData();
     };
 
     useOpenMenu(dropdownShow, setDropdownShow, 'js-dropdown');

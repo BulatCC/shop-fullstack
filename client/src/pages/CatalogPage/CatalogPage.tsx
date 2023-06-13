@@ -5,20 +5,16 @@ import { Catalog } from '../../components/Ui/Catalog/Catalog';
 import style from './CatalogPage.module.scss';
 import { ClothsGender } from '../../constants';
 
-const screenWidth = document.documentElement.clientWidth;
-
 const CatalogPage = (): JSX.Element => {
-    const { gender = ClothsGender.Woman } = useParams();
+    const { productType, gender = ClothsGender.Woman } = useParams();
 
     return (
         <div className={style['catalog-page']}>
             <div className={`${style['catalog-page_container']} container`}>
-                {screenWidth < 768 && (
-                    <BreadCrumbs classMod={style['catalog-page_bread-crumbs']} />
-                )}
+                <BreadCrumbs classMod={`${style['catalog-page_bread-crumbs']} hidden-tablet`} />
             </div>
             <HeadBlock />
-            <Catalog gender={gender}/>
+            <Catalog gender={gender} productType={productType}/>
         </div>
     );
 };

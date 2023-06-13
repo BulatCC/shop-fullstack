@@ -3,8 +3,8 @@ import { CartProductCardProps } from './CartProductCard.type';
 import { ColorCircle } from '../ColorCircle/ColorCircle';
 import style from './CartProductCard.module.scss';
 
-const CartProductCard = ({ data: { id, gender, productType, img, title, price }, color, size, handleDelete, index }: CartProductCardProps): JSX.Element => {
-    const route = `/${gender}/${productType}/${id}`;
+const CartProductCard = ({ data: { _id, gender, productType, img, title, price }, color, size, handleDelete, index }: CartProductCardProps): JSX.Element => {
+    const route = `/${gender}/${productType}/${_id}`;
     return (
         <article className={style['cart-product-card']}>
             <Link to={route}>

@@ -1,6 +1,8 @@
 import { ColorsDataType } from '../../types/ProductData.type';
 import { FormEvent } from 'react';
 import { SliderSubmitData } from '../../pages/EditProductPage/EditProductPage.type';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 export const getColorsData = (colors: ColorsDataType[]): string[] => {
     return colors.reduce((acc: string[], { color }) => {
@@ -36,5 +38,4 @@ export const handleFormSubmit = (evt: FormEvent<HTMLFormElement>): void => {
             };
         }
     }
-    console.log(submitData);
 };

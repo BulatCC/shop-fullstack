@@ -1,7 +1,7 @@
 import style from './LoginPage.module.scss';
 import { LoginForm } from '../../components/Ui/LoginForm/LoginForm';
-import { useAppSelector } from '../../store/ReduxHooks';
-import { getAuthorizationStatus } from '../../store/AppState/AppState';
+import { useAppSelector } from '../../store/reduxHooks';
+import { getAuthorizationStatus } from '../../store/auth/auth';
 import { AuthorizationStatus, AppRoute } from '../../constants';
 import { Navigate } from 'react-router-dom';
 

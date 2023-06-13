@@ -1,28 +1,18 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ProductsPreviewList } from '../../components/Ui/ProductsPreviewList/ProductsPreviewList';
+import { Recommend } from '../../components/Ui/Recommend/Recommend';
 import { BreadCrumbs } from '../../components/Common/BreadCrumbs/BreadCrumbs';
 import { Total } from '../../components/Ui/Total/Total';
 import { CartProductCard } from '../../components/Common/CartProductCard/CartProductCard';
 import style from './CartPage.module.scss';
-import { AppRoute, ClothsGender } from '../../constants';
-import { API } from '../../services/api/api';
-import { ProductDataType } from '../../types/ProductData.type';
-import { useAppSelector, useAppDispatch } from '../../store/ReduxHooks';
-import { getCart, deleteProductCart } from '../../store/AppState/AppState';
-import { cartLocalStorage } from '../../services/localStorage/cartLocalStorage';
-import { CartProduct } from '../../store/AppState/AppState.type';
+import { ClothsGender } from '../../constants';
+import { useAppSelector, useAppDispatch } from '../../store/reduxHooks';
+import { getCart, deleteProductCart } from '../../store/cart/cart';
+import { cartLocalStorage } from '../../services/localStorage/cartLocalStorage/cartLocalStorage';
+import { CartProduct } from '../../store/cart/cart.type';
 
 const CartPage = (): JSX.Element => {
     const dispatch = useAppDispatch();
     const cartProducts = useAppSelector(getCart());
-    const [recommendData, setRecommendData] = useState<ProductDataType[] | null>(null);
-    useEffect(() => {
-        API.getRecommendData()
-            .then(data => setRecommendData(data as ProductDataType[]))
-            .catch(error => console.log(error));
-    }, []);
-
     const handleProductDelete = (index: number): void => {
         const cartLocalStorageData = cartLocalStorage.getCartData();
         dispatch(deleteProductCart(index));
@@ -72,8 +62,7 @@ const CartPage = (): JSX.Element => {
                                     color={color}
                                     index={i}
                                     handleDelete={handleProductDelete}
-                                    key={`${productData.id}${i.toString()}`}
-
+                                    key={`${productData._id}${i.toString()}`}
                                 />
                             ))}
                         </div>
@@ -81,8 +70,7 @@ const CartPage = (): JSX.Element => {
                     </div>
                 </div>
             </section>}
-
-            <ProductsPreviewList title='You may also like' link={`/${AppRoute.Catalog}/${ClothsGender.Woman}`} products={recommendData} />
+            <Recommend/>
         </>
     );
 };

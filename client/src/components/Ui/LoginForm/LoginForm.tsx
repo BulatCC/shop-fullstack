@@ -4,10 +4,10 @@ import { FormInput } from '../../Common/Form/FormInput/FormInput';
 import { FormButton } from '../../Common/Form/FormButton/FormButton';
 import { LoginFormProps, LoginFormFields } from './LoginForm.type';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { EMAIL_REGEX, AuthorizationStatus, AppRoute } from '../../../constants';
-import { useAppDispatch } from '../../../store/ReduxHooks';
-import { setAuthorizationStatus } from '../../../store/AppState/AppState';
+import { EMAIL_REGEX, AppRoute } from '../../../constants';
+import { useAppDispatch } from '../../../store/reduxHooks';
 import { Link } from 'react-router-dom';
+import { singIn } from '../../../store/auth/auth';
 
 const LoginForm = ({ classMod, onChangeShow }: LoginFormProps): JSX.Element => {
     const dispatch = useAppDispatch();
@@ -29,7 +29,7 @@ const LoginForm = ({ classMod, onChangeShow }: LoginFormProps): JSX.Element => {
 
     const submitHandler: SubmitHandler<LoginFormFields> = (data) => {
         console.log(data);
-        dispatch(setAuthorizationStatus(AuthorizationStatus.Auth));
+        void dispatch(singIn(data));
     };
     return (
         <Form classMod={classMod} onSubmit={handleSubmit(submitHandler)}>
