@@ -3,14 +3,17 @@ export interface ColorsDataType {
     color: string;
     images: string[];
     size: {
-        [key: string]: string;
+        [key: string]: {
+            title: string;
+            value: string;
+        };
     };
 }
 export interface ProductDataType {
-    id: string;
+    _id: string;
     img: string;
     title: string;
-    price: string;
+    price: number;
     productType: string;
     bestSeller: boolean;
     gender: string;

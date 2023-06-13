@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
-import { useAppSelector } from '../../../store/ReduxHooks';
-import { getAuthorizationStatus } from '../../../store/AppState/AppState';
+import { useAppSelector } from '../../../store/reduxHooks';
+import { getAuthorizationStatus } from '../../../store/auth/auth';
 import { AuthorizationStatus, AppRoute } from '../../../constants';
 import { PrivateRouteProps } from './PrivateRoute.type';
 

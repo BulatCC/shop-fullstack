@@ -2,11 +2,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { BreadCrumbsProps, BreadCrumbsPath } from './BreadCrumbs.type';
 import style from './BreadCrumbs.module.scss';
 import { AppRoute } from '../../../constants';
-import { useEffect, useId, useState } from 'react';
+import { useEffect, useState } from 'react';
 import cn from 'classnames';
 
 const BreadCrumbs = ({ classMod, productName }: BreadCrumbsProps): JSX.Element => {
-    const uniqId = useId();
     const location = useLocation().pathname;
     const urlPath = location.split('/').slice(1);
     const breadCrumbsDefaultPath = urlPath.map(path => ({
@@ -36,9 +35,9 @@ const BreadCrumbs = ({ classMod, productName }: BreadCrumbsProps): JSX.Element =
             path.push(name);
             const constructedPath = path.join('/');
             if (i === urlPath.length - 1) {
-                return <span className={style['bread-crumbs_link']} key={uniqId}>{name}</span>;
+                return <span className={style['bread-crumbs_link']} key={name}>{name}</span>;
             } else {
-                return <Link className={style['bread-crumbs_link']} to={`/${constructedPath}`} key={uniqId}>{name}</Link>;
+                return <Link className={style['bread-crumbs_link']} to={`/${constructedPath}`} key={name}>{name}</Link>;
             }
         });
     };

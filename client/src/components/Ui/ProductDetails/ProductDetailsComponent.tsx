@@ -1,7 +1,7 @@
 import { ChangeEvent, MouseEvent } from 'react';
 import { SortButtons } from '../../Common/SortButtons/SortButtons';
 import { Radio } from '../../Common/Radio/Radio';
-import { ProductDetailsComponentProps } from './ProductDetails.type';
+import { ProductDetailsComponentProps, SizeType } from './ProductDetails.type';
 import { ColorsDataType } from '../../../types/ProductData.type';
 import style from './ProductDetails.module.scss';
 import { getColorsData } from '../../../services/utils/utils';
@@ -16,12 +16,14 @@ const ProductDetailsComponent = ({
 }: ProductDetailsComponentProps): JSX.Element => {
     const colorsData = getColorsData(colors);
 
-    const getSizeData = (): string[] => {
+    const getSizeData = (): SizeType[] => {
         const sizeData = colors.find(({ color }) => color === selected.color
         ) as ColorsDataType;
 
-        return Object.keys(sizeData.size);
+        return Object.values(sizeData.size);
     };
+
+    const sizeData = getSizeData();
 
     const handleChange = (evt: ChangeEvent<HTMLInputElement> | MouseEvent<HTMLButtonElement>): void => {
         const { value, name } = evt.target as HTMLButtonElement;
@@ -54,7 +56,7 @@ const ProductDetailsComponent = ({
                     <li className={style['product-details_item']}>
                         <h3 className={style['product-details_sub-title']}>{sizeTitle}</h3>
                         <SortButtons
-                            data={getSizeData()}
+                            data={sizeData}
                             name="size"
                             onChange={handleChange}
                             selected={selected.size}
@@ -67,7 +69,7 @@ const ProductDetailsComponent = ({
                     type="button"
                     onClick={handleAddToCart}
                 >
-          Add to cart
+                    Add to cart
                 </button>
             </div>
         </div>

@@ -18,24 +18,26 @@ router.post('/singUp', [
                     errors: errors.array()
                 });
             }
-            const {email, password, name} = req.body;
+            
+
+            const {email, password} = req.body;
+            
             const existingUser = await User.findOne({email});
 
             if (existingUser) {
                 return res.status(400).json({
-                    message: 'User already exists'
+                    message: 'Email already exists'
                 });
             }
 
             const hashedPassword = await bcrypt.hash(password, 12);
-            const newUser = User.create({
-                email: email,
-                password: hashedPassword,
-                name: name
+            const newUser = await User.create({
+                ...req.body,
+                password: hashedPassword
             });
 
-            const tokens = tokenService.generate({_id: newUser._id});
-            await tokenService.save(newUser._id, tokens.refreshToken);
+            const tokens = tokenService.generateToken({_id: newUser._id});
+            await tokenService.saveToken(newUser._id, tokens.refreshToken);
 
             res.status(201).send({...tokens, userId: newUser._id})
         } catch (e) {
@@ -47,7 +49,7 @@ router.post('/singUp', [
     }
 ]);
 
-router.post('/singInWithPassword',[
+router.post('/singIn',[
     check('email', 'Wrong email').normalizeEmail().isEmail(),
     check('password', 'Passwords must be at least 6 characters').exists(),
     async  (req, res) => {
@@ -56,22 +58,16 @@ router.post('/singInWithPassword',[
 
             if (!errors.isEmpty()) {
                 return res.status(400).json({
-                    message: 'Invalid_data',
-                    errors: errors.array()
+                    message: 'Invalid_data'
                 });
             }
 
             const {email, password} = req.body;
-
             const existingUser = await User.findOne({email});
-
 
             if (!existingUser) {
                 return res.status(400).send({
-                    error: {
-                        message: 'Email_not_found',
-                        code: 400
-                    }
+                    message: 'Email not found'
                 });
             }
 
@@ -79,15 +75,12 @@ router.post('/singInWithPassword',[
 
             if (!isEqual) {
                 return res.status(400).send({
-                    error: {
-                        message: 'Invalid_password',
-                        code: 400
-                    }
+                    message: 'Invalid_password'
                 });
             }
 
-            const tokens = tokenService.generate({_id: existingUser._id});
-            await tokenService.save(existingUser._id, tokens.refreshToken);
+            const tokens = tokenService.generateToken({_id: existingUser._id});
+            await tokenService.saveToken(existingUser._id, tokens.refreshToken);
 
             res.status(200).send({...tokens, userId: existingUser._id});
         } catch (e) {
@@ -97,7 +90,7 @@ router.post('/singInWithPassword',[
         }
 }] );
 
-router.post('/token', async  (req, res) => {
+router.post('/refreshToken', async  (req, res) => {
     try {
         const { refreshToken } = req.body;
 
@@ -111,11 +104,11 @@ router.post('/token', async  (req, res) => {
             });
         }
 
-        const tokens = tokenService.generate({
+        const tokens = await tokenService.generateToken({
             id: tokenDb.user.toString()
         });
 
-        await tokenService.save(tokenDb._id, tokens.refreshToken);
+        await tokenService.saveToken(tokenDb._id, tokens.refreshToken);
 
         res.status(200).send({...tokens, userId: tokenDb._id});
     } catch (e) {

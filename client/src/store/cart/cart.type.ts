@@ -8,11 +8,10 @@ export interface CartProduct {
     productData: ProductDataType;
 }
 
-export interface InitialAppState {
-    authorizationStatus: string;
+export interface InitialCartState {
     cart: CartProduct[];
 }
 
-export interface AppState {
-    appState: InitialAppState;
+export interface CartState {
+    cart: InitialCartState;
 }

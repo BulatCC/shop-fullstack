@@ -17,7 +17,7 @@ const ProductList = ({ products, classMod, isCatalog, skeletonNumber }: ProductL
         if (products) {
             return (
                 products.map((product, i) => (
-                    <li key={product.id} className={style['product-list_item']} >
+                    <li key={product._id} className={style['product-list_item']} >
                         <ProductCard productCardData={product} isBig={addClass(i)} isCatalog={isCatalog} />
                     </li>
                 ))

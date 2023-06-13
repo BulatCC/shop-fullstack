@@ -1,0 +1,31 @@
+.amount-button {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    user-select: none;
+}
+
+.amount-button_button {
+    width: 4rem;
+    height: 4rem;
+    color: var(--color-default-white);
+    background-color: var(--color-default-black);
+    transition: var(--default-transition);
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.amount-button_number {
+    padding: 1rem;
+    min-width: 4rem;
+    height: 4rem;
+    text-align: center;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

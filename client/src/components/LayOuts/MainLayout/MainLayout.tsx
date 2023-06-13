@@ -2,10 +2,10 @@ import { Outlet } from 'react-router-dom';
 import { Header } from '../../Ui/Header/Header';
 import { Footer } from '../../Ui/Footer/Footer';
 import { useScrollTop } from '../../../hooks/useScrollTop';
-import { useAppDispatch } from '../../../store/ReduxHooks';
+import { useAppDispatch } from '../../../store/reduxHooks';
 import { useEffect } from 'react';
-import { cartLocalStorage } from '../../../services/localStorage/cartLocalStorage';
-import { addProductCart } from '../../../store/AppState/AppState';
+import { cartLocalStorage } from '../../../services/localStorage/cartLocalStorage/cartLocalStorage';
+import { addProductCart } from '../../../store/cart/cart';
 
 const MainLayout = (): JSX.Element => {
     useScrollTop();
